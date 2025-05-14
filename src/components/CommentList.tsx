@@ -29,7 +29,7 @@ const CommentList: React.FC<CommentListProps> = ({
   }
 
   return (
-    <div>
+    <div className="space-y-4">
       {comments.map((comment) => (
         <Comment
           key={comment.id}

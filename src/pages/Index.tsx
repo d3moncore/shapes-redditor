@@ -23,8 +23,7 @@ const Index: React.FC = () => {
       upvotes: 1, // Start with 1 upvote (self-upvote)
       timestamp: 'just now',
     });
-    // Add initial AI response
-    handleAIResponse();
+    // Let's not add initial AI response here, let the user comment first
   };
   
   const handleUpvotePost = () => {
@@ -56,7 +55,7 @@ const Index: React.FC = () => {
     
     setComments([...comments, newComment]);
     
-    // Simulate AI response
+    // Simulate AI response after user comments
     handleAIResponse();
   };
   
@@ -82,7 +81,7 @@ const Index: React.FC = () => {
         isAI: true,
       };
       
-      setComments([...comments, aiComment]);
+      setComments(prevComments => [...prevComments, aiComment]);
     }, 800);
   };
   
@@ -102,7 +101,9 @@ const Index: React.FC = () => {
     );
   };
   
-  const handleReplyToComment = (content: string) => {
+  const handleReplyToComment = (content: string, parentId?: string) => {
+    // For simplicity, we're just adding replies at the top level
+    // In a real Reddit thread, replies would be nested
     handleCommentSubmit(content);
   };
 
