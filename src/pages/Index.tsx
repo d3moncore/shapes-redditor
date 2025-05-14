@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import PostCreate from '@/components/PostCreate';
 import Post from '@/components/Post';
 import CommentList, { CommentData } from '@/components/CommentList';
 import CommentBox from '@/components/CommentBox';
+import { getAIResponse } from '@/api/shapes';
 
 const Index: React.FC = () => {
   const [post, setPost] = useState<{
@@ -13,7 +13,9 @@ const Index: React.FC = () => {
     upvotes: number;
     timestamp: string;
   } | null>(null);
-  
+
+
+
   const [comments, setComments] = useState<CommentData[]>([]);
   
   const handleCreatePost = (title: string, content: string) => {
@@ -56,34 +58,23 @@ const Index: React.FC = () => {
     setComments([...comments, newComment]);
     
     // Simulate AI response after user comments
-    handleAIResponse();
+    handleAIResponse(newComment.content);
   };
   
-  const handleAIResponse = () => {
-    // Simple delay to simulate AI thinking
-    setTimeout(() => {
-      const aiResponses = [
-        "That's a really interesting question. I think the key factors to consider are context, relevance, and personal experience.",
-        "I see your point. From my perspective, this is a complex issue with multiple angles to consider.",
-        "Great question! I believe the answer lies in finding a balance between innovation and tradition.",
-        "I appreciate your thoughts on this. Let me offer a different perspective that might be helpful.",
-        "This reminds me of a similar situation where the outcome was quite surprising. Let me explain..."
-      ];
-      
-      const randomResponse = aiResponses[Math.floor(Math.random() * aiResponses.length)];
-      
-      const aiComment: CommentData = {
-        id: `ai-${Date.now()}`,
-        author: 'u/AI_Assistant',
-        content: randomResponse,
-        timestamp: 'just now',
-        upvotes: 1,
-        isAI: true,
-      };
-      
-      setComments(prevComments => [...prevComments, aiComment]);
-    }, 800);
-  };
+  async function handleAIResponse(message: string) {
+    const content = await getAIResponse(message);
+    
+    const aiComment: CommentData = {
+      id: `ai-${Date.now()}`,
+      author: 'u/AI_Assistant',
+      content,
+      timestamp: 'just now',
+      upvotes: 1,
+      isAI: true,
+    };
+
+    setComments(prevComments => [...prevComments, aiComment]);
+  }
   
   const handleUpvoteComment = (id: string) => {
     setComments(
