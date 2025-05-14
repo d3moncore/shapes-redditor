@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Reddit colors
+				reddit: {
+					orange: '#FF4500',
+					blue: '#0079D3',
+					lightgray: '#F8F9FA',
+					gray: '#DAE0E6',
+					darkgray: '#1A1A1B',
+					textgray: '#878A8C'
 				}
 			},
 			borderRadius: {
