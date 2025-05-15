@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 
 interface PostProps {
   title: string;
-  content: string;
   upvotes: number;
   onUpvote: () => void;
   onDownvote: () => void;
@@ -14,7 +13,6 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = ({ 
   title, 
-  content, 
   upvotes, 
   onUpvote, 
   onDownvote,
@@ -50,7 +48,6 @@ const Post: React.FC<PostProps> = ({
             Posted by u/User {timestamp}
           </div>
           <h3 className="text-lg font-medium mb-2">{title}</h3>
-          {content && <div className="text-sm mb-3">{content}</div>}
           
           {/* Action buttons */}
           <div className="flex items-center space-x-4 text-reddit-textgray text-xs">

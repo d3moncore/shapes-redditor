@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import PostCreate from '@/components/PostCreate';
 import Post from '@/components/Post';
@@ -9,23 +9,23 @@ import { getAIResponse } from '@/api/shapes';
 const Index: React.FC = () => {
   const [post, setPost] = useState<{
     title: string;
-    content: string;
     upvotes: number;
     timestamp: string;
   } | null>(null);
 
-
-
   const [comments, setComments] = useState<CommentData[]>([]);
   
-  const handleCreatePost = (title: string, content: string) => {
+  useEffect(() => {
+    getAIResponse("", true); // Reset context on page load
+  }, []);
+
+  const handleCreatePost = (title: string) => {
     setPost({
       title,
-      content,
       upvotes: 1, // Start with 1 upvote (self-upvote)
       timestamp: 'just now',
     });
-    // Let's not add initial AI response here, let the user comment first
+    handleAIResponse(title);
   };
   
   const handleUpvotePost = () => {
@@ -66,7 +66,7 @@ const Index: React.FC = () => {
     
     const aiComment: CommentData = {
       id: `ai-${Date.now()}`,
-      author: 'u/AI_Assistant',
+      author: 'u/otakufinalbossfellow',
       content,
       timestamp: 'just now',
       upvotes: 1,
@@ -108,7 +108,6 @@ const Index: React.FC = () => {
           <div>
             <Post
               title={post.title}
-              content={post.content}
               upvotes={post.upvotes}
               onUpvote={handleUpvotePost}
               onDownvote={handleDownvotePost}

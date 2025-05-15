@@ -5,19 +5,17 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 interface PostCreateProps {
-  onCreatePost: (title: string, content: string) => void;
+  onCreatePost: (title: string) => void;
 }
 
 const PostCreate: React.FC<PostCreateProps> = ({ onCreatePost }) => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
-      onCreatePost(title, content);
+      onCreatePost(title);
       setTitle('');
-      setContent('');
     }
   };
 
@@ -30,13 +28,6 @@ const PostCreate: React.FC<PostCreateProps> = ({ onCreatePost }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className="mb-2"
-        />
-        <Textarea
-          placeholder="Text (optional)"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="mb-4"
-          rows={4}
         />
         <Button 
           type="submit" 
