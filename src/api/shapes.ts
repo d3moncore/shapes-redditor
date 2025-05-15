@@ -1,5 +1,5 @@
 export async function getAIResponse(message: string, reset: boolean = false) {
-  const response = await fetch('http://localhost:3001/api/shapes', {
+  const response = await fetch('/api/shapes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

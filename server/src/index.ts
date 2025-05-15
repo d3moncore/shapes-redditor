@@ -8,7 +8,6 @@ import morgan from 'morgan';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors());
@@ -72,6 +71,5 @@ app.post('/api/shapes', [
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-}); 
+// Export the Express API
+export default app; 
