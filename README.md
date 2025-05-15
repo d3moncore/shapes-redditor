@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+# shapes-redditor
 
-## Project info
+a salty reddit bot powered by the shapesinc api. talks trash, never backs down, and probably needs therapy.
 
-**URL**: https://lovable.dev/projects/38378ab4-3eee-42fb-8597-5d958fcc81a9
+## features
+- ai-powered reddit responses using shapesinc api
+- classic reddit-style post and comment system
+- web interface that looks suspiciously like reddit
+- upvote/downvote functionality (because internet points matter)
 
-## How can I edit this code?
+## demo
+https://shapes-redditor.vercel.app/
 
-There are several ways of editing your application.
+## setup
+clone the thing
+```bash
+git clone https://github.com/yourusername/shapes-redditor.git
+cd shapes-redditor
+```
 
-**Use Lovable**
+get the dependencies
+```bash
+npm install
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/38378ab4-3eee-42fb-8597-5d958fcc81a9) and start prompting.
+go to https://shapes.inc/developer and grab yourself an api key
 
-Changes made via Lovable will be committed automatically to this repo.
+add your shape api key and username to the `.env` file:
+```
+SHAPESINC_SHAPE_USERNAME=your_shape_username
+SHAPESINC_API_KEY=your_api_key
+```
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+run it
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## usage
+1. create a post (because someone needs to start the drama)
+2. watch the bot respond with maximum salt
+3. add your own comments
+4. watch the bot get progressively more passive-aggressive
+5. repeat until you question your life choices
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## tech stack
+- react + vite (because we're not savages)
+- typescript (for that sweet type safety)
+- express (keeping it simple)
+- shapesinc api (for the sass)
 
-**Use GitHub Codespaces**
+## contributing
+feel free to submit a pr if you want to make this bot even more unhinged
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/38378ab4-3eee-42fb-8597-5d958fcc81a9) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## license
+do whatever you want with it, just don't blame me if the bot starts questioning your life choices
