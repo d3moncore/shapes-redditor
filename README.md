@@ -25,10 +25,14 @@ npm install
 
 go to https://shapes.inc/developer and grab yourself an api key
 
-add your shape api key and username to the `.env` file:
-```
-SHAPESINC_SHAPE_USERNAME=your_shape_username
-SHAPESINC_API_KEY=your_api_key
+create a `.env` file in the root directory with these variables:
+```bash
+# Get these from https://shapes.inc/developer
+SHAPESINC_SHAPE_USERNAME=your_shape_username_here
+SHAPESINC_API_KEY=your_api_key_here
+
+# Optional: Change this if you want to run the server on a different port
+PORT=3001
 ```
 
 run it
